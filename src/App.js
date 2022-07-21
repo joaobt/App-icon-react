@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState }from 'react';
+import Icon from './Icon';
 
-function App() {
+
+const App = () => {
+
+  const [isOn,setIsOn] = useState(true);
+
+  const toggle = () => {
+    setIsOn(!isOn);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1> Gordo, careca, pobre</h1>
+      
+      <div onClick={() => {toggle()}} className={`item ${isOn ? 'on' : 'off'}`}>
+        <label>Gordo</label> <Icon id="switch" />
+      </div>
     </div>
   );
-}
-
+};
 export default App;
+
+
+
